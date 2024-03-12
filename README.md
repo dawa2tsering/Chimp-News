@@ -1,16 +1,15 @@
 # chimp_news
 
-A new Flutter project.
+Chimpvine news is a news application project for Chimpvine assessment.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project uses free news api provided by [New Api](https://newsapi.org/).
 
-A few resources to get you started if this is your first Flutter project:
+Following are the major features of this application:
+- Search for news articles that mention a specific topic or keyword.
+- Get the current top headlines for a country or category or sources or domains.
+- Login as user.
+- Save offline news.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
