@@ -12,4 +12,7 @@ Following are the major features of this application:
 - Login as user.
 - Save offline news.
 
+Following is the application design:
+- [Chimpvine News Figma](https://www.figma.com/file/2HxM3thKMUHPxy9iVw2pUP/News-Mobile-App?type=design&node-id=0-1&mode=design&t=ucuJW1Ksq26xRodC-0).
+
 
