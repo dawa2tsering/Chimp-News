@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "92364816643",
+    "project_id": "chimp-news-29562",
+    "storage_bucket": "chimp-news-29562.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:92364816643:android:db61bc520d8a6c7f2c2936",
+        "android_client_info": {
+          "package_name": "com.chimp.news"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuBOpuaYL3IDMf43K7LYUarNzbIOiWVV8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
