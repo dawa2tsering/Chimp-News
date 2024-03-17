@@ -1,20 +1,17 @@
+import 'package:chimp_news/data/models/news_model.dart';
 import 'package:chimp_news/utils/constant/app_colors.dart';
 import 'package:chimp_news/utils/constant/app_images.dart';
 import 'package:chimp_news/utils/constant/app_text_styles.dart';
-import 'package:chimp_news/widget/app_image_widget.dart';
+import 'package:chimp_news/presentation/widget/app_image_widget.dart';
+import 'package:chimp_news/utils/database/app_database.dart';
+import 'package:chimp_news/utils/locator/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // ignore: must_be_immutable
 class DetailView extends StatefulWidget {
-  String url;
-  String heading;
-  String author;
-  DetailView(
-      {super.key,
-      required this.url,
-      required this.heading,
-      required this.author});
+  Article article;
+  DetailView({super.key, required this.article});
 
   @override
   State<DetailView> createState() => _DetailViewState();
@@ -22,6 +19,46 @@ class DetailView extends StatefulWidget {
 
 class _DetailViewState extends State<DetailView> {
   bool saved = false;
+
+  @override
+  void initState() {
+    checkSaveStatus();
+    super.initState();
+  }
+
+  //check if the news is saved or not
+  checkSaveStatus() async {
+    bool response = await locator<AppDatabase>()
+        .checkSaveStatus(title: widget.article.title ?? "xxx");
+    setState(() {
+      saved = response;
+    });
+  }
+
+  //save news
+  saveNews({required Article news}) async {
+    await locator<AppDatabase>().insertNews({
+      "author": widget.article.author,
+      "title": widget.article.title,
+      "description": widget.article.description,
+      "url": widget.article.url,
+      "urlToImage": widget.article.urlToImage,
+      "publishedAt": widget.article.publishedAt.toString(),
+      "content": widget.article.content,
+    });
+    setState(() {
+      saved = true;
+    });
+  }
+
+  //delete news
+  deleteNews({required String title}) async {
+    await locator<AppDatabase>().deleteNews(title: title);
+    setState(() {
+      saved = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,6 +76,14 @@ class _DetailViewState extends State<DetailView> {
         ),
         actions: [
           GestureDetector(
+            onTap: () {
+              if (widget.article.title != null ||
+                  widget.article.title != "xxx") {
+                saved
+                    ? deleteNews(title: widget.article.title ?? "xxx")
+                    : saveNews(news: widget.article);
+              }
+            },
             child: Padding(
               padding: EdgeInsets.only(
                 right: 20.w,
@@ -69,13 +114,13 @@ class _DetailViewState extends State<DetailView> {
                 ),
               ],
             ),
-            child: AppImageWidget(url: ""),
+            child: AppImageWidget(url: widget.article.url ?? "xxx"),
           ),
           SizedBox(
             height: 10.h,
           ),
           Text(
-            widget.heading,
+            widget.article.title ?? "xxx",
             style: AppTextStyles.titleStyle,
           ),
           SizedBox(
@@ -87,7 +132,7 @@ class _DetailViewState extends State<DetailView> {
               style: AppTextStyles.authorStyle,
               children: <TextSpan>[
                 TextSpan(
-                  text: 'auther adf ',
+                  text: widget.article.author ?? "xxx",
                   style: AppTextStyles.authorStyle
                       .copyWith(decoration: TextDecoration.underline),
                 ),
@@ -98,7 +143,7 @@ class _DetailViewState extends State<DetailView> {
             height: 10.h,
           ),
           Text(
-            "adfad lakdjf adfkjadlfka sdlkjadsdldf adfadsf addd d d d d d dfdfdf dff df dfdf df  faslkdfj asldkfj asldkfj alkdsjf alskdjf alksdjflaskdjf laskdjfalskdjflkasdjf alksdjflaksdjfalskdfj df df df  askdfjalksjf ",
+            widget.article.content ?? "xxx xxx xxx",
             textAlign: TextAlign.justify,
             style: AppTextStyles.bodyStyle,
           ),

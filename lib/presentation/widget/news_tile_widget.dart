@@ -1,20 +1,15 @@
+import 'package:chimp_news/data/models/news_model.dart';
 import 'package:chimp_news/utils/constant/app_colors.dart';
 import 'package:chimp_news/utils/constant/app_text_styles.dart';
-import 'package:chimp_news/view/detail_view.dart';
-import 'package:chimp_news/widget/app_image_widget.dart';
+import 'package:chimp_news/presentation/view/detail_view.dart';
+import 'package:chimp_news/presentation/widget/app_image_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 // ignore: must_be_immutable
 class NewsTileWidget extends StatelessWidget {
-  String url;
-  String heading;
-  String author;
-  NewsTileWidget(
-      {super.key,
-      required this.url,
-      required this.heading,
-      required this.author});
+  Article article;
+  NewsTileWidget({super.key, required this.article});
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +18,9 @@ class NewsTileWidget extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) =>
-                    DetailView(url: url, heading: heading, author: author)));
+                builder: (context) => DetailView(
+                      article: article,
+                    )));
       },
       child: Container(
         margin: EdgeInsets.only(bottom: 20.w),
@@ -50,7 +46,7 @@ class NewsTileWidget extends StatelessWidget {
                 color: AppColors.tertiaryColor,
                 borderRadius: BorderRadius.circular(10.w),
               ),
-              child: AppImageWidget(url: url),
+              child: AppImageWidget(url: article.url ?? "xxx"),
             ),
             SizedBox(
               width: 10.h,
@@ -61,7 +57,7 @@ class NewsTileWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      heading,
+                      article.title ?? "xxx",
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: AppTextStyles.headingStyle,
@@ -70,7 +66,7 @@ class NewsTileWidget extends StatelessWidget {
                       height: 10.h,
                     ),
                     Text(
-                      author,
+                      article.author ?? "xxx",
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: AppTextStyles.authorStyle,

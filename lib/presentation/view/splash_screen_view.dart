@@ -1,7 +1,7 @@
 import 'package:chimp_news/utils/constant/app_colors.dart';
 import 'package:chimp_news/utils/constant/app_images.dart';
 import 'package:chimp_news/utils/constant/app_text_styles.dart';
-import 'package:chimp_news/view/login_view.dart';
+import 'package:chimp_news/presentation/view/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

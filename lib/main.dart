@@ -1,5 +1,6 @@
 import 'package:chimp_news/firebase_options.dart';
-import 'package:chimp_news/view/splash_screen_view.dart';
+import 'package:chimp_news/presentation/view/splash_screen_view.dart';
+import 'package:chimp_news/utils/locator/locator.dart';
 import 'package:device_preview/device_preview.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,8 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  initLocator();
+
   runApp(
     DevicePreview(
       enabled: true,

@@ -69,6 +69,7 @@ class SignupView extends StatelessWidget {
                     onChanged: (val) {},
                     onEditingComplete: () {},
                     decoration: InputDecoration(
+                        counterText: "",
                         hintText: 'Username',
                         hintStyle: AppTextStyles.authorStyle
                             .copyWith(fontSize: AppFontSize.f14),
@@ -81,6 +82,7 @@ class SignupView extends StatelessWidget {
                     style: AppTextStyles.authorStyle
                         .copyWith(fontSize: AppFontSize.f14),
                     obscureText: true,
+                    maxLength: 14,
                   ),
                 ),
                 SizedBox(height: 20.h),
@@ -116,6 +118,7 @@ class SignupView extends StatelessWidget {
                     onChanged: (val) {},
                     onEditingComplete: () {},
                     decoration: InputDecoration(
+                        counterText: "",
                         hintText: 'Password',
                         hintStyle: AppTextStyles.authorStyle
                             .copyWith(fontSize: AppFontSize.f14),
@@ -128,6 +131,7 @@ class SignupView extends StatelessWidget {
                     style: AppTextStyles.authorStyle
                         .copyWith(fontSize: AppFontSize.f14),
                     obscureText: true,
+                    maxLength: 8,
                   ),
                 ),
                 SizedBox(height: 40.h),

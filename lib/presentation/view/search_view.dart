@@ -1,10 +1,11 @@
+import 'package:chimp_news/data/models/news_model.dart';
 import 'package:chimp_news/utils/constant/app_colors.dart';
 import 'package:chimp_news/utils/constant/app_text_styles.dart';
-import 'package:chimp_news/widget/news_tile_widget.dart';
+import 'package:chimp_news/presentation/widget/news_tile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../utils/constant/app_font_size.dart';
+import '../../utils/constant/app_font_size.dart';
 
 class SearchView extends StatefulWidget {
   const SearchView({super.key});
@@ -68,93 +69,79 @@ class _SearchViewState extends State<SearchView> {
   }
 
   Widget _allView({required BuildContext context}) {
-    return ListView(
-      shrinkWrap: true,
+    return Column(
       children: [
-        NewsTileWidget(
-            url: "url",
-            heading: "headingheadingheadingheadingheadingheadingheadingheading",
-            author: "authorheadingheading"),
-        NewsTileWidget(
-            url: "url",
-            heading: "headingheadingheadingheadingheadingheadingheadingheading",
-            author: "authorheadingheading"),
-        NewsTileWidget(
-            url: "url",
-            heading: "headingheadingheadingheadingheadingheadingheadingheading",
-            author: "authorheadingheading"),
-        NewsTileWidget(
-            url: "url",
-            heading: "headingheadingheadingheadingheadingheadingheadingheading",
-            author: "authorheadingheading"),
-        NewsTileWidget(
-            url: "url",
-            heading: "headingheadingheadingheadingheadingheadingheadingheading",
-            author: "authorheadingheading"),
-        NewsTileWidget(
-            url: "url",
-            heading: "headingheadingheadingheadingheadingheadingheadingheading",
-            author: "authorheadingheading"),
+        Expanded(
+          child: ListView(
+            shrinkWrap: true,
+            children: [
+              NewsTileWidget(
+                article: Article(
+                  source: null,
+                  author: "re rrpa",
+                  title: "adf sdf adsfdsf sd",
+                  description: "dkfsd kdjfd dkjf",
+                  url: "sdf",
+                  urlToImage: "dfd",
+                  publishedAt: DateTime.now().toString(),
+                  content: "df adkf;lksdf sldkk dfkl ldkfldff lkdlfk df ",
+                ),
+              ),
+              NewsTileWidget(
+                article: Article(
+                  source: null,
+                  author: "Ddfdfrpa",
+                  title: "dfdf dfdf dfdf dfd dndi",
+                  description: "dkfsd kdjfd dkjf",
+                  url: "sdf",
+                  urlToImage: "dfd",
+                  publishedAt: DateTime.now().toString(),
+                  content: "df adkf;lksdf sldkk dfkl ldkfldff lkdlfk df ",
+                ),
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }
 
   Widget _newsView({required BuildContext context}) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Flexible(
-              child: Text(
-                "Popular News",
-                style: AppTextStyles.titleStyle,
-              ),
-            ),
-            TextButton(
-              onPressed: () {},
-              child: Text(
-                "Show More",
-                style: AppTextStyles.bodyStyle,
-              ),
-            ),
-          ],
+        Text(
+          "Popular News",
+          style: AppTextStyles.titleStyle,
         ),
         Expanded(
           child: ListView(
             shrinkWrap: true,
             children: [
               NewsTileWidget(
-                  url: "url",
-                  heading:
-                      "headingheadingheadingheadingheadingheadingheadingheading",
-                  author: "authorheadingheading"),
+                article: Article(
+                  source: null,
+                  author: "Dawa Sherdf pa",
+                  title: "Temperaturdf df dmandi",
+                  description: "dkfsd kdjfd dkjf",
+                  url: "sdf",
+                  urlToImage: "dfd",
+                  publishedAt: DateTime.now().toString(),
+                  content: "df adkf;lksdf sldkk dfkl ldkfldff lkdlfk df ",
+                ),
+              ),
               NewsTileWidget(
-                  url: "url",
-                  heading:
-                      "headingheadingheadingheadingheadingheadingheadingheading",
-                  author: "authorheadingheading"),
-              NewsTileWidget(
-                  url: "url",
-                  heading:
-                      "headingheadingheadingheadingheadingheadingheadingheading",
-                  author: "authorheadingheading"),
-              NewsTileWidget(
-                  url: "url",
-                  heading:
-                      "headingheadingheadingheadingheadingheadingheadingheading",
-                  author: "authorheadingheading"),
-              NewsTileWidget(
-                  url: "url",
-                  heading:
-                      "headingheadingheadingheadingheadingheadingheadingheading",
-                  author: "authorheadingheading"),
-              NewsTileWidget(
-                  url: "url",
-                  heading:
-                      "headingheadingheadingheadingheadingheadingheadingheading",
-                  author: "authorheadingheading"),
+                article: Article(
+                  source: null,
+                  author: "Dawa Sherpa",
+                  title: "Temp fdf df",
+                  description: "dkfsd kdjfd dkjf",
+                  url: "sdf",
+                  urlToImage: "dfd",
+                  publishedAt: DateTime.now().toString(),
+                  content: "df adkf;lksdf sldkk dfkl ldkfldff lkdlfk df ",
+                ),
+              ),
             ],
           ),
         )
@@ -168,20 +155,13 @@ class _SearchViewState extends State<SearchView> {
         Wrap(
           alignment: WrapAlignment.spaceBetween,
           children: [
-            Expanded(child: _mediaBoxWidget()),
-            Expanded(child: _mediaBoxWidget()),
-            Expanded(child: _mediaBoxWidget()),
-            Expanded(child: _mediaBoxWidget()),
-            Expanded(child: _mediaBoxWidget()),
-            Expanded(child: _mediaBoxWidget()),
-            Expanded(child: _mediaBoxWidget()),
-            Expanded(child: _mediaBoxWidget()),
-            Expanded(child: _mediaBoxWidget()),
-            Expanded(child: _mediaBoxWidget()),
-            Expanded(child: _mediaBoxWidget()),
-            Expanded(child: _mediaBoxWidget()),
-            Expanded(child: _mediaBoxWidget()),
-            Expanded(child: _mediaBoxWidget()),
+            _mediaBoxWidget(),
+            _mediaBoxWidget(),
+            _mediaBoxWidget(),
+            _mediaBoxWidget(),
+            _mediaBoxWidget(),
+            _mediaBoxWidget(),
+            _mediaBoxWidget(),
           ],
         ),
       ],
@@ -234,6 +214,7 @@ class _SearchViewState extends State<SearchView> {
         onChanged: (val) {},
         onEditingComplete: () {},
         decoration: InputDecoration(
+            counterText: "",
             hintText: 'Search anthing here',
             hintStyle:
                 AppTextStyles.authorStyle.copyWith(fontSize: AppFontSize.f14),
@@ -244,6 +225,7 @@ class _SearchViewState extends State<SearchView> {
             ),
             border: InputBorder.none),
         style: AppTextStyles.authorStyle.copyWith(fontSize: AppFontSize.f14),
+        maxLength: 20,
       ),
     );
   }

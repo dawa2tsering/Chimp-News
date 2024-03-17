@@ -2,10 +2,10 @@ import 'package:chimp_news/utils/constant/app_colors.dart';
 import 'package:chimp_news/utils/constant/app_font_size.dart';
 import 'package:chimp_news/utils/constant/app_images.dart';
 import 'package:chimp_news/utils/constant/app_text_styles.dart';
-import 'package:chimp_news/view/home_view.dart';
-import 'package:chimp_news/view/profile_view.dart';
-import 'package:chimp_news/view/saved_view.dart';
-import 'package:chimp_news/view/search_view.dart';
+import 'package:chimp_news/presentation/view/home_view.dart';
+import 'package:chimp_news/presentation/view/profile_view.dart';
+import 'package:chimp_news/presentation/view/saved_view.dart';
+import 'package:chimp_news/presentation/view/search_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -28,7 +28,9 @@ class _LandingPageViewState extends State<LandingPageView> {
               padding: EdgeInsets.only(
                 left: 20.w,
               ),
-              child: Image.asset(AppImages.chimpvineLogo)),
+              child: Image.asset(
+                AppImages.chimpvineLogo,
+              )),
           centerTitle: true,
           title: index == 0
               ? RichText(

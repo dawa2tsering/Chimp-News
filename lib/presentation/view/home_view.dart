@@ -1,8 +1,9 @@
+import 'package:chimp_news/data/models/news_model.dart';
 import 'package:chimp_news/utils/constant/app_colors.dart';
 import 'package:chimp_news/utils/constant/app_text_styles.dart';
-import 'package:chimp_news/view/detail_view.dart';
-import 'package:chimp_news/widget/app_image_widget.dart';
-import 'package:chimp_news/widget/news_tile_widget.dart';
+import 'package:chimp_news/presentation/view/detail_view.dart';
+import 'package:chimp_news/presentation/widget/app_image_widget.dart';
+import 'package:chimp_news/presentation/widget/news_tile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -83,35 +84,17 @@ class HomeView extends StatelessWidget {
             ],
           ),
           NewsTileWidget(
-              url: "url",
-              heading:
-                  "headingheadingheadingheadingheadingheadingheadingheading",
-              author: "authorheadingheading"),
-          NewsTileWidget(
-              url: "url",
-              heading:
-                  "headingheadingheadingheadingheadingheadingheadingheading",
-              author: "authorheadingheading"),
-          NewsTileWidget(
-              url: "url",
-              heading:
-                  "headingheadingheadingheadingheadingheadingheadingheading",
-              author: "authorheadingheading"),
-          NewsTileWidget(
-              url: "url",
-              heading:
-                  "headingheadingheadingheadingheadingheadingheadingheading",
-              author: "authorheadingheading"),
-          NewsTileWidget(
-              url: "url",
-              heading:
-                  "headingheadingheadingheadingheadingheadingheadingheading",
-              author: "authorheadingheading"),
-          NewsTileWidget(
-              url: "url",
-              heading:
-                  "headingheadingheadingheadingheadingheadingheadingheading",
-              author: "authorheadingheading"),
+            article: Article(
+              source: null,
+              author: "Darpa",
+              title: "dhmandi",
+              description: "dkfsd kdjfd dkjf",
+              url: "sdf",
+              urlToImage: "dfd",
+              publishedAt: DateTime.now().toString(),
+              content: "df adkf;lksdf sldkk dfkl ldkfldff lkdlfk df ",
+            ),
+          ),
         ],
       ),
     );
@@ -186,9 +169,18 @@ class HomeView extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => DetailView(
-                                url: "url",
-                                heading: "adfk akdaf;laskd aldkf aldkf",
-                                author: "dfa falkdjf")));
+                                  article: Article(
+                                    source: null,
+                                    author: "Dawa Sherpa",
+                                    title: "Temperature rise in kathmandi",
+                                    description: "dkfsd kdjfd dkjf",
+                                    url: "sdf",
+                                    urlToImage: "dfd",
+                                    publishedAt: DateTime.now().toString(),
+                                    content:
+                                        "df adkf;lksdf sldkk dfkl ldkfldff lkdlfk df ",
+                                  ),
+                                )));
                   },
                   child: IntrinsicWidth(
                     child: Row(
@@ -224,8 +216,18 @@ class HomeView extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) =>
-                    DetailView(url: url, heading: heading, author: author)));
+                builder: (context) => DetailView(
+                      article: Article(
+                        source: null,
+                        author: "fdf dfdf",
+                        title: "hi dawa sdfd",
+                        description: "dkfsd kdjfd dkjf",
+                        url: "sdf",
+                        urlToImage: "dfd",
+                        publishedAt: DateTime.now().toString(),
+                        content: "df adkf;lksdf sldkk dfkl ldkfldff lkdlfk df ",
+                      ),
+                    )));
       },
       child: Container(
         margin: EdgeInsets.only(right: 15.w, bottom: 4.h, left: 4.h, top: 4.h),

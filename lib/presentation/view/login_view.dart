@@ -2,8 +2,8 @@ import 'package:chimp_news/utils/constant/app_colors.dart';
 import 'package:chimp_news/utils/constant/app_font_size.dart';
 import 'package:chimp_news/utils/constant/app_images.dart';
 import 'package:chimp_news/utils/constant/app_text_styles.dart';
-import 'package:chimp_news/view/landing_page_view.dart';
-import 'package:chimp_news/view/signup_view.dart';
+import 'package:chimp_news/presentation/view/landing_page_view.dart';
+import 'package:chimp_news/presentation/view/signup_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -71,6 +71,7 @@ class LoginView extends StatelessWidget {
                   onChanged: (val) {},
                   onEditingComplete: () {},
                   decoration: InputDecoration(
+                      counterText: "",
                       hintText: 'Password',
                       hintStyle: AppTextStyles.authorStyle
                           .copyWith(fontSize: AppFontSize.f14),
@@ -83,6 +84,7 @@ class LoginView extends StatelessWidget {
                   style: AppTextStyles.authorStyle
                       .copyWith(fontSize: AppFontSize.f14),
                   obscureText: true,
+                  maxLength: 8,
                 ),
               ),
               SizedBox(height: 40.h),
